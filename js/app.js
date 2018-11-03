@@ -32,6 +32,11 @@ function addCardToList(elem) {
     openCardsList.push(elem);
 }
 
+function cardsMatch(elem) {
+    openCardsList[openCardsList.length-1].classList.add('match');
+    elem.classList.add('match');
+}
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -61,16 +66,16 @@ function shuffle(array) {
 // adding event lister to whole deck, so we don't have to add 16 of them (one for each card)
 deck.addEventListener('click', function(e){
     if(e.target.nodeName === 'LI'){
-        let currentElemChildClass = e.target.firstElementChild.classList.item(1);
-        console.log(currentElemChildClass);
-        showCard(e.target);
+        let currentElem = e.target;
+        console.log(currentElem);
+        showCard(currentElem);
         if(openCardsList.length > 0){
-            if(openCardsList.includes(currentElemChildClass)){
-                console.log("working");
+            if(openCardsList[openCardsList.length-1].innerHTML === currentElem.innerHTML){
+                cardsMatch(currentElem);
             } else {
                 console.log("else");
             }
         }
-        addCardToList(currentElemChildClass);
+        addCardToList(currentElem);
     }
  })
