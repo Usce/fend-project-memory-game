@@ -37,6 +37,10 @@ function cardsMatch(elem) {
     elem.classList.add('match');
 }
 
+function cardsNoMatch(elem) {
+
+}
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -67,15 +71,17 @@ function shuffle(array) {
 deck.addEventListener('click', function(e){
     if(e.target.nodeName === 'LI'){
         let currentElem = e.target;
-        console.log(currentElem);
         showCard(currentElem);
         if(openCardsList.length > 0){
             if(openCardsList[openCardsList.length-1].innerHTML === currentElem.innerHTML){
                 cardsMatch(currentElem);
+                addCardToList(currentElem);
             } else {
                 console.log("else");
             }
         }
-        addCardToList(currentElem);
+        else{
+            addCardToList(currentElem);
+        }
     }
  })
