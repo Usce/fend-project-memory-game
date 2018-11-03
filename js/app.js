@@ -59,9 +59,18 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 // adding event lister to whole deck, so we don't have to add 16 of them (one for each card)
- deck.addEventListener('click', function(e){
+deck.addEventListener('click', function(e){
     if(e.target.nodeName === 'LI'){
-      showCard(e.target);
-      addCardToList(e.target);
+        let currentElemChildClass = e.target.firstElementChild.classList.item(1);
+        console.log(currentElemChildClass);
+        showCard(e.target);
+        if(openCardsList.length > 0){
+            if(openCardsList.includes(currentElemChildClass)){
+                console.log("working");
+            } else {
+                console.log("else");
+            }
+        }
+        addCardToList(currentElemChildClass);
     }
  })
