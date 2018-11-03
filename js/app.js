@@ -4,6 +4,7 @@
 let cards = document.getElementsByClassName('card');
 let deck = document.querySelector('.deck');
 let restartButton = document.querySelector('.restart');
+let openCardsList = [];
 
 /*
  * Display the cards on the page
@@ -25,6 +26,10 @@ cardShuffler();
 
 function showCard(elem) {
     elem.classList.add('open', 'show');
+}
+
+function addCardToList(elem) {
+    openCardsList.push(elem);
 }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -57,5 +62,6 @@ function shuffle(array) {
  deck.addEventListener('click', function(e){
     if(e.target.nodeName === 'LI'){
       showCard(e.target);
+      addCardToList(e.target);
     }
  })
