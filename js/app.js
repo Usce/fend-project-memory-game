@@ -12,16 +12,20 @@ let restartButton = document.querySelector('.restart');
  *   - add each card's HTML to the page
  */
 function cardShuffler(){
- let shuffleCards = shuffle(cards);
- for(let card of shuffleCards){
+   let shuffleCards = shuffle(cards);
+   for(let card of shuffleCards){
    /* using appendChild because if will actuall rearrange the nodes because nodes
     * are already existing
     */
-   deck.appendChild(card);
- }
+     deck.appendChild(card);
+   }
 }
 
 cardShuffler();
+
+function showCard(elem) {
+    elem.classList.add('open', 'show');
+}
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -49,7 +53,9 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
-
+// adding event lister to whole deck, so we don't have to add 16 of them (one for each card)
  deck.addEventListener('click', function(e){
-
+    if(e.target.nodeName === 'LI'){
+      showCard(e.target);
+    }
  })
