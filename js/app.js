@@ -2,6 +2,8 @@
  * Create a list that holds all of your cards
  */
 let cards = document.getElementsByClassName('card');
+let deck = document.querySelector('.deck');
+let restartButton = document.querySelector('.restart');
 
 /*
  * Display the cards on the page
@@ -9,6 +11,17 @@ let cards = document.getElementsByClassName('card');
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+function cardShuffler(){
+ let shuffleCards = shuffle(cards);
+ for(let card of shuffleCards){
+   /* using appendChild because if will actuall rearrange the nodes because nodes
+    * are already existing
+    */
+   deck.appendChild(card);
+ }
+}
+
+cardShuffler();
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
