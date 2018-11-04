@@ -111,3 +111,21 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+.wrapper {
+    position: relative;
+}
+
+.win-popup {
+    position: absolute;
+    background: #fff;
+    top: 0;
+    height: calc(100% - 3em);
+    left: 0;
+    width: 100%;
+    display: flex;
+    padding: 10%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
