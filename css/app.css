@@ -142,3 +142,7 @@ h1 {
     text-transform: uppercase;
     color: #fff;
 }
+
+.stats {
+    margin-top: 0;
+}
