@@ -2,6 +2,7 @@
  * Create a list that holds all of your cards
  */
 let cards = document.getElementsByClassName('card');
+let matchedCards = document.getElementsByClassName('match');
 let deck = document.querySelector('.deck');
 let restart = document.querySelector('.restart');
 let movesElem = document.querySelector('.moves');
@@ -78,6 +79,12 @@ function restartGame() {
     }
 }
 
+function allMatch() {
+    if(matchedCards.length === 16) {
+        console.log("you won");
+    }
+}
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -113,6 +120,7 @@ deck.addEventListener('click', function(e){
             if(openCardsList[openCardsList.length-1].innerHTML === currentElem.innerHTML){
                 cardsMatch(currentElem);
                 trackMoves();
+                allMatch();
             } else {
                 cardsNoMatch(currentElem);
                 trackMoves();
