@@ -147,6 +147,10 @@ h1 {
     margin-top: 0;
 }
 
+.dnone {
+    display: none;
+}
+
 /* CSS for checkmark from sweetalert.js sourced by https://codepen.io/istiaktridip/pen/BZqaOd */
 
 .check_mark {
