@@ -23,9 +23,6 @@ let numberTracker = 0;
 function cardShuffler(){
    let shuffleCards = shuffle(cards);
    for(let card of shuffleCards){
-   /* using appendChild because if will actuall rearrange the nodes because nodes
-    * are already existing
-    */
      deck.appendChild(card);
    }
 }
@@ -79,6 +76,7 @@ function restartGame() {
         movesElem.firstChild.remove();
         numberTracker = 0;
         openCardsList = [];
+        cardShuffler();
     }
 }
 
@@ -108,7 +106,6 @@ function shuffle(array) {
 
     return array;
 }
-
 
 /*
  * set up the event listener for a card. If a card is clicked:
