@@ -10,6 +10,7 @@ let movesText = document.querySelector('.movestext');
 let stars = document.querySelector('.stars');
 let movesStats = document.querySelector('.moves-stats');
 let starsStats = document.querySelector('.stars-stats');
+let winBox = document.querySelector('.win-popup');
 let openCardsList = [];
 let numberTracker = 0;
 
@@ -85,6 +86,10 @@ function allMatch() {
     if(matchedCards.length === 16) {
         movesStats.innerHTML=numberTracker;
         starsStats.innerHTML=stars.childElementCount;
+        winBox.classList.add('show-popup');
+        setTimeout(function(){
+            winBox.firstElementChild.classList.remove('dnone');
+        }, 100);
         console.log("you won");
     }
 }
