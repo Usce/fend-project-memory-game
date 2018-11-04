@@ -4,7 +4,11 @@
 let cards = document.getElementsByClassName('card');
 let deck = document.querySelector('.deck');
 let restartButton = document.querySelector('.restart');
+let movesElem = document.querySelector('.moves');
+let movesText = document.querySelector('.movestext');
+let stars = document.querySelector('.stars');
 let openCardsList = [];
+let numberTracker = 0;
 
 /*
  * Display the cards on the page
@@ -41,13 +45,25 @@ function cardsMatch(elem) {
 function cardsNoMatch(elem) {
     showCard(elem);
     deck.classList.add('pointer-events-disabled');
+    // set timeout to prolongate time for .open and .show class removal to maintain visiblity of cards for user
     setTimeout(function(){
         openCardsList[openCardsList.length-1].classList.remove('open', 'show', 'pointer-events-disabled');
         elem.classList.remove('open', 'show', 'pointer-events-disabled');
         openCardsList = [];
         deck.classList.remove('pointer-events-disabled');
     }, 1000);
+}
 
+function trackMoves(){
+    numberTracker++;
+    movesElem.textContent=numberTracker;
+    numberTracker === 1 ? movesText.textContent="Move" : movesText.textContent="Moves";
+    // Adjust star rating based on moves
+    if(numberTracker === 13) {
+        stars.lastElementChild.remove();
+    } else if (numberTracker === 17) {
+        stars.lastElementChild.remove();
+    }
 }
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -84,8 +100,10 @@ deck.addEventListener('click', function(e){
         if(openCardsList.length > 0){
             if(openCardsList[openCardsList.length-1].innerHTML === currentElem.innerHTML){
                 cardsMatch(currentElem);
+                trackMoves();
             } else {
                 cardsNoMatch(currentElem);
+                trackMoves();
             }
         }
         else {
