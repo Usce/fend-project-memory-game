@@ -3,7 +3,7 @@
  */
 let cards = document.getElementsByClassName('card');
 let deck = document.querySelector('.deck');
-let restartButton = document.querySelector('.restart');
+let restart = document.querySelector('.restart');
 let movesElem = document.querySelector('.moves');
 let movesText = document.querySelector('.movestext');
 let stars = document.querySelector('.stars');
@@ -66,6 +66,18 @@ function trackMoves(){
     }
 }
 
+function restartGame() {
+    if(window.confirm('NOTE: If you restart, you will lose all your progress!')){
+        for(card of cards) {
+            card.classList.remove('open', 'show', 'match', 'pointer-events-disabled');
+        }
+        movesText.textContent="No moves";
+        movesElem.firstChild.remove();
+        numberTracker = 0;
+        openCardsList = [];
+    }
+}
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -110,4 +122,6 @@ deck.addEventListener('click', function(e){
             addCardToList(currentElem);
         }
     }
- })
+});
+
+restart.addEventListener('click', restartGame);
