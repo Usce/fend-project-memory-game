@@ -25,7 +25,7 @@ function cardShuffler(){
 cardShuffler();
 
 function showCard(elem) {
-    elem.classList.add('open', 'show');
+    elem.classList.add('open', 'show', 'pointer-events-disabled');
 }
 
 function addCardToList(elem) {
@@ -35,9 +35,18 @@ function addCardToList(elem) {
 function cardsMatch(elem) {
     openCardsList[openCardsList.length-1].classList.add('match');
     elem.classList.add('match');
+    openCardsList = [];
 }
 
 function cardsNoMatch(elem) {
+    showCard(elem);
+    deck.classList.add('pointer-events-disabled');
+    setTimeout(function(){
+        openCardsList[openCardsList.length-1].classList.remove('open', 'show', 'pointer-events-disabled');
+        elem.classList.remove('open', 'show', 'pointer-events-disabled');
+        openCardsList = [];
+        deck.classList.remove('pointer-events-disabled');
+    }, 1000);
 
 }
 
@@ -75,12 +84,11 @@ deck.addEventListener('click', function(e){
         if(openCardsList.length > 0){
             if(openCardsList[openCardsList.length-1].innerHTML === currentElem.innerHTML){
                 cardsMatch(currentElem);
-                addCardToList(currentElem);
             } else {
-                console.log("else");
+                cardsNoMatch(currentElem);
             }
         }
-        else{
+        else {
             addCardToList(currentElem);
         }
     }
