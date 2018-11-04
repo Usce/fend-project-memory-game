@@ -8,6 +8,8 @@ let restart = document.querySelector('.restart');
 let movesElem = document.querySelector('.moves');
 let movesText = document.querySelector('.movestext');
 let stars = document.querySelector('.stars');
+let movesStats = document.querySelector('.moves-stats');
+let starsStats = document.querySelector('.stars-stats');
 let openCardsList = [];
 let numberTracker = 0;
 
@@ -81,6 +83,8 @@ function restartGame() {
 
 function allMatch() {
     if(matchedCards.length === 16) {
+        movesStats.innerHTML=numberTracker;
+        starsStats.innerHTML=stars.childElementCount;
         console.log("you won");
     }
 }
