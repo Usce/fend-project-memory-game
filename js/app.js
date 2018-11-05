@@ -23,6 +23,7 @@ let winBox = document.querySelector('.win-popup');
 let playAgain = document.querySelector('.play-again');
 let openCardsList = [];
 let numberTracker = 0;
+let seconds = 0;
 
 /*
  * Display the cards on the page
@@ -51,6 +52,13 @@ function cardShuffler(deck){
 
 cardShuffler(deck);
 
+function timer() {
+    setInterval(function() {
+        seconds++
+    }, 1000);
+}
+
+timer();
 
 function showCard(elem) {
     elem.classList.add('open', 'show', 'pointer-events-disabled');
