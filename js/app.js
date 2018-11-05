@@ -47,7 +47,7 @@ let seconds = 0;
 function cardShuffler(deck){
     let container = "";
     let cardsShuffled = shuffle(cardClasses);
-    for(card of cardsShuffled){
+    for (card of cardsShuffled){
         container += `<li class="card"><i class="fa ${card}"></i></li>`;
     }
     deck.innerHTML=container;
@@ -109,7 +109,7 @@ function trackMoves(){
     movesElem.textContent=numberTracker;
     numberTracker === 1 ? movesText.textContent="Move" : movesText.textContent="Moves";
     // Adjust star rating based on moves
-    if(numberTracker === 13) {
+    if (numberTracker === 13) {
         stars.lastElementChild.remove();
     } else if (numberTracker === 17) {
         stars.lastElementChild.remove();
@@ -123,12 +123,12 @@ function trackMoves(){
 *  card deck is shuffled again, thus, new set of cards is created and append to deck.
 */
 function restartGame() {
-    if(window.confirm("You're about to start a new game. Previous result will not be saved.")){
-        for(card of cards) {
+    if (window.confirm("You're about to start a new game. Previous result will not be saved.")){
+        for (card of cards) {
             card.classList.remove('open', 'show', 'match', 'pointer-events-disabled');
         }
         movesText.textContent="No moves";
-        if(movesElem.firstChild){
+        if (movesElem.firstChild){
             movesElem.firstChild.remove();
         }
         winBox.classList.remove('show-popup');
@@ -148,7 +148,7 @@ function restartGame() {
 *  will initiate restartGame()
 */
 function allMatch() {
-    if(matchedCards.length === 16) {
+    if (matchedCards.length === 16) {
         movesStats.innerHTML=numberTracker;
         starsStats.innerHTML=stars.childElementCount;
         time.innerHTML=seconds;
@@ -187,14 +187,14 @@ function shuffle(array) {
 // adding event lister to whole deck, so we don't have to add 16 of them (one for each card)
 deck.addEventListener('click', function(e){
     // check if event target is actuall card
-    if(e.target.nodeName === 'LI'){
+    if (e.target.nodeName === 'LI'){
         let currentElem = e.target;
         // show card clicked
         showCard(currentElem);
         // If array of open cards has at least 1 item
-        if(openCardsList.length > 0){
+        if (openCardsList.length > 0){
             // Then check the last item of array and element currently clicked
-            if(openCardsList[openCardsList.length-1].innerHTML === currentElem.innerHTML){
+            if (openCardsList[openCardsList.length-1].innerHTML === currentElem.innerHTML){
                 cardsMatch(currentElem);
                 trackMoves();
                 allMatch();
