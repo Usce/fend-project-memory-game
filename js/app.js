@@ -22,6 +22,7 @@ let starsStats = document.querySelector('.stars-stats');
 let winBox = document.querySelector('.win-popup');
 let playAgain = document.querySelector('.play-again');
 let time = document.getElementById('time');
+let star = '<li><i class="fa fa-star"></i></li>';
 let openCardsList = [];
 let numberTracker = 0;
 let seconds = 0;
@@ -134,6 +135,7 @@ function restartGame() {
         numberTracker = 0;
         openCardsList = [];
         seconds = 0;
+        stars.innerHTML=star.repeat(3);
         cardShuffler(deck);
     }
 }
