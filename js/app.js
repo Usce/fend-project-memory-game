@@ -21,6 +21,7 @@ let movesStats = document.querySelector('.moves-stats');
 let starsStats = document.querySelector('.stars-stats');
 let winBox = document.querySelector('.win-popup');
 let playAgain = document.querySelector('.play-again');
+let time = document.getElementById('time');
 let openCardsList = [];
 let numberTracker = 0;
 let seconds = 0;
