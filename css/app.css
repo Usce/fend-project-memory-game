@@ -126,6 +126,7 @@ while waiting for part of the cart to flip */
     font-size: 33px;
 }
 
+/* Pseudo element used for correct animation */
 .deck .card.match:before {
     position: absolute;
     top: -5%;
@@ -153,6 +154,7 @@ while waiting for part of the cart to flip */
     animation-timing-function: linear;
 }
 
+/* Used to prevent user from clicking cards when they are opened or in showing phase */
 .pointer-events-disabled {
     pointer-events: none;
 }
