@@ -78,10 +78,12 @@ function cardsMatch(elem) {
 function cardsNoMatch(elem) {
     showCard(elem);
     deck.classList.add('pointer-events-disabled');
+    elem.classList.add('nomatch');
+    openCardsList[openCardsList.length-1].classList.add('nomatch');
     // set timeout to prolongate time for .open and .show class removal to maintain visiblity of cards for user
     setTimeout(function(){
-        openCardsList[openCardsList.length-1].classList.remove('open', 'show', 'pointer-events-disabled');
-        elem.classList.remove('open', 'show', 'pointer-events-disabled');
+        openCardsList[openCardsList.length-1].classList.remove('open', 'show', 'pointer-events-disabled', 'nomatch');
+        elem.classList.remove('open', 'show', 'pointer-events-disabled', 'nomatch');
         openCardsList = [];
         deck.classList.remove('pointer-events-disabled');
     }, 1000);
