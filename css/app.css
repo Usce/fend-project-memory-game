@@ -112,6 +112,20 @@ while waiting for part of the cart to flip */
     font-size: 33px;
 }
 
+.deck .card.match.before {
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    border-radius: 10px;
+    width: 110%;
+    height: 110%;
+    transform: scale(1);
+    background: green;
+    z-index: -3;
+    opacity: 0.3;
+    content: " ";
+}
+
 .deck .card.nomatch {
     background-color: #f45c42;
     animation: notCorrect;
