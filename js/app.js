@@ -31,12 +31,25 @@ let numberTracker = 0;
  *   - add each card's HTML to the page
  */
 
-function cardShuffler(){
-   for(card of shuffledCards){
-     console.log(card);
-     deck.insertAdjacentElement('afterbegin', card);
-   }
+//  function cardShuffler(cardClasses){
+//    // let shuffleCards = shuffle(cards);
+//    let contain = "";
+//    for(let card of shuffle(cardClasses)){
+//      contain = `<li class="card"><i class="fa ${card}"></i></li>`;
+//      deck.appendChild(contain);
+//    }
+// }
+
+function cardShuffler(deck){
+    let container = "";
+    let cardsShuffled = shuffle(cardClasses);
+    for(card of cardsShuffled){
+        container += `<li class="card"><i class="fa ${card}"></i></li>`;
+    }
+    deck.innerHTML=container;
 }
+
+cardShuffler(deck);
 
 
 function showCard(elem) {
