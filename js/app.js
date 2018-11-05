@@ -111,6 +111,7 @@ function restartGame() {
         winBox.classList.remove('show-popup');
         numberTracker = 0;
         openCardsList = [];
+        seconds = 0;
         cardShuffler(deck);
     }
 }
