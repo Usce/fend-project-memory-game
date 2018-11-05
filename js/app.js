@@ -11,6 +11,7 @@ let stars = document.querySelector('.stars');
 let movesStats = document.querySelector('.moves-stats');
 let starsStats = document.querySelector('.stars-stats');
 let winBox = document.querySelector('.win-popup');
+let playAgain = document.querySelector('.play-again');
 let openCardsList = [];
 let numberTracker = 0;
 
@@ -68,12 +69,13 @@ function trackMoves(){
 }
 
 function restartGame() {
-    if(window.confirm('NOTE: If you restart, you will lose all your progress!')){
+    if(window.confirm("You're about to start a new game. Previous result will not be saved.")){
         for(card of cards) {
             card.classList.remove('open', 'show', 'match', 'pointer-events-disabled');
         }
         movesText.textContent="No moves";
         movesElem.firstChild.remove();
+        winBox.classList.remove('show-popup');
         numberTracker = 0;
         openCardsList = [];
         cardShuffler();
@@ -139,3 +141,4 @@ deck.addEventListener('click', function(e){
 });
 
 restart.addEventListener('click', restartGame);
+playAgain.addEventListener('click', restartGame);
