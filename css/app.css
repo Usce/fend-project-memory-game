@@ -142,6 +142,7 @@ while waiting for part of the cart to flip */
     animation-delay: 350ms;
     animation-duration: 350ms;
     animation-timing-function: linear;
+    animation-fill-mode: forwards;
 }
 
 .deck .card.nomatch {
