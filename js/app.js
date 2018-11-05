@@ -102,7 +102,7 @@ function restartGame() {
         winBox.classList.remove('show-popup');
         numberTracker = 0;
         openCardsList = [];
-        cardShuffler();
+        cardShuffler(deck);
     }
 }
 
@@ -114,7 +114,6 @@ function allMatch() {
         setTimeout(function(){
             winBox.firstElementChild.classList.remove('dnone');
         }, 100);
-        console.log("you won");
     }
 }
 
