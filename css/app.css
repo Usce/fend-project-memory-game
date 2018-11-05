@@ -47,6 +47,20 @@ h1 {
     }
 }
 
+@keyframes correct {
+    0% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(2);
+        opacity: 0.05;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
 /*
  * Styles for the deck of cards
  */
@@ -112,7 +126,7 @@ while waiting for part of the cart to flip */
     font-size: 33px;
 }
 
-.deck .card.match.before {
+.deck .card.match:before {
     position: absolute;
     top: -5%;
     left: -5%;
@@ -124,6 +138,10 @@ while waiting for part of the cart to flip */
     z-index: -3;
     opacity: 0.3;
     content: " ";
+    animation: correct;
+    animation-delay: 350ms;
+    animation-duration: 350ms;
+    animation-timing-function: linear;
 }
 
 .deck .card.nomatch {
