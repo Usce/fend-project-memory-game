@@ -42,6 +42,7 @@ let seconds = 0;
 //    }
 // }
 
+//Shufflign cards function, where argument is element in which card will be append
 function cardShuffler(deck){
     let container = "";
     let cardsShuffled = shuffle(cardClasses);
@@ -53,6 +54,7 @@ function cardShuffler(deck){
 
 cardShuffler(deck);
 
+// Timer function used to increment seconds and display results if game is finished
 function timer() {
     setInterval(function() {
         seconds++
@@ -61,26 +63,34 @@ function timer() {
 
 timer();
 
+// Show cards by adding necessary CSS classes
 function showCard(elem) {
     elem.classList.add('open', 'show', 'pointer-events-disabled');
 }
 
+// Add clicked card to array to track if card is paired
 function addCardToList(elem) {
     openCardsList.push(elem);
 }
 
+// Check if clicked element is the same as one previously stored(clicked) in array
 function cardsMatch(elem) {
     openCardsList[openCardsList.length-1].classList.add('match');
     elem.classList.add('match');
     openCardsList = [];
 }
 
+/*
+*  If cards don't match, remove all classes and reset to default. While
+*  cards are being shown, mouse events are disabled to prevent further cards
+*  showing while currents are being shown. SetTimout to 1s so that user can see
+*  the cards before classes are removed
+*/
 function cardsNoMatch(elem) {
     showCard(elem);
     deck.classList.add('pointer-events-disabled');
     elem.classList.add('nomatch');
     openCardsList[openCardsList.length-1].classList.add('nomatch');
-    // set timeout to prolongate time for .open and .show class removal to maintain visiblity of cards for user
     setTimeout(function(){
         openCardsList[openCardsList.length-1].classList.remove('open', 'show', 'pointer-events-disabled', 'nomatch');
         elem.classList.remove('open', 'show', 'pointer-events-disabled', 'nomatch');
@@ -89,6 +99,10 @@ function cardsNoMatch(elem) {
     }, 1000);
 }
 
+/*
+*  As user opens cards count moves in numberTracker. Adjust move/moves wording depending
+*  on count. Remove stars as count goes up (as user wrong moves increment numberTracker)
+*/
 function trackMoves(){
     numberTracker++;
     movesElem.textContent=numberTracker;
@@ -101,6 +115,12 @@ function trackMoves(){
     }
 }
 
+/*
+*  Initiated on play again button or restart icon.
+*  Alert prompt asks user to confirm starting a new game.
+*  If user confirms, are settings and variables are reset, and
+*  card deck is shuffled again, thus, new set of cards is created and append to deck.
+*/
 function restartGame() {
     if(window.confirm("You're about to start a new game. Previous result will not be saved.")){
         for(card of cards) {
@@ -118,6 +138,13 @@ function restartGame() {
     }
 }
 
+/*
+*  Initiated when matched cards array (HTML collection) has 16 items, meaning
+*  16 cards have class of 'match', which means game is finished.
+*  Pop-up box appear with results, showing number of moves, star rating,
+*  time used to finish the game, and a button to reinitiate the game, which if clicked
+*  will initiate restartGame()
+*/
 function allMatch() {
     if(matchedCards.length === 16) {
         movesStats.innerHTML=numberTracker;
@@ -157,10 +184,14 @@ function shuffle(array) {
  */
 // adding event lister to whole deck, so we don't have to add 16 of them (one for each card)
 deck.addEventListener('click', function(e){
+    // check if event target is actuall card
     if(e.target.nodeName === 'LI'){
         let currentElem = e.target;
+        // show card clicked
         showCard(currentElem);
+        // If array of open cards has at least 1 item
         if(openCardsList.length > 0){
+            // Then check the last item of array and element currently clicked
             if(openCardsList[openCardsList.length-1].innerHTML === currentElem.innerHTML){
                 cardsMatch(currentElem);
                 trackMoves();
@@ -175,5 +206,6 @@ deck.addEventListener('click', function(e){
     }
 });
 
+// listen for clicks on restart and playAgain elements
 restart.addEventListener('click', restartGame);
 playAgain.addEventListener('click', restartGame);
