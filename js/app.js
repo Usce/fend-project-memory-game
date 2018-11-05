@@ -96,7 +96,9 @@ function restartGame() {
             card.classList.remove('open', 'show', 'match', 'pointer-events-disabled');
         }
         movesText.textContent="No moves";
-        movesElem.firstChild.remove();
+        if(movesElem.firstChild){
+            movesElem.firstChild.remove();
+        }
         winBox.classList.remove('show-popup');
         numberTracker = 0;
         openCardsList = [];
