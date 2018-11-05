@@ -21,6 +21,7 @@ let numberTracker = 0;
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+ 
 function cardShuffler(){
    let shuffleCards = shuffle(cards);
    for(let card of shuffleCards){
@@ -133,8 +134,7 @@ deck.addEventListener('click', function(e){
                 cardsNoMatch(currentElem);
                 trackMoves();
             }
-        }
-        else {
+        } else {
             addCardToList(currentElem);
         }
     }
