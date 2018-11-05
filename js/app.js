@@ -119,6 +119,7 @@ function allMatch() {
     if(matchedCards.length === 16) {
         movesStats.innerHTML=numberTracker;
         starsStats.innerHTML=stars.childElementCount;
+        time.innerHTML=seconds;
         winBox.classList.add('show-popup');
         setTimeout(function(){
             winBox.firstElementChild.classList.remove('dnone');
