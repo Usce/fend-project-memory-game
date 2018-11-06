@@ -1,20 +1,34 @@
-# Memory Game Project
+# Memory Game
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* [Welcome](#welcome)
+* [How to play](#how-to-play)
+* [Stars Rating](#stars-rating)
 * [Contributing](#contributing)
 
-## Instructions
+## Welcome
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+This is memory game created purely using HTML, CSS and Vanilla JS.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## How to play
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+To play this game just clone this git project to your local machine and open
+index.html.
+
+Goal is to pair all cards from the deck in least moves as possible.
+Earn up to 3 stars depending on your moves count.
+
+### Stars rating
+
+| Stars         | Moves         |
+| ------------- |:-------------:|
+| 3 stars       | >12           |
+| 2 stars       | 13-17         |
+| 1 star        | 17>           |
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+This repository contains project for submission to Udacity, as a part
+of Front-End Nanodegree. As sole purpose of the project is as mentioned, at the moment
+further contributions are needless.
