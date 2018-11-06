@@ -49,16 +49,16 @@ function cardShuffler(deck){
 cardShuffler(deck);
 
 // Timer function used to increment seconds and display results if game is finished
-function timer(isRunning) {
+setInterval(function() {
     if(isRunning){
-        setInterval(function() {
-            seconds++
-            countEl.innerHTML=seconds;
-        }, 1000);
-    }
-}
+        seconds++
+        countEl.innerHTML=seconds;
+    } else {
+        countEl.innerHTML=seconds;
+        }
+    }, 1000);
 
-timer(isRunning);
+
 
 // Show cards by adding necessary CSS classes
 function showCard(elem) {
@@ -148,6 +148,7 @@ function allMatch() {
         movesStats.innerHTML=numberTracker;
         starsStats.innerHTML=stars.childElementCount;
         time.innerHTML=seconds;
+        isRunning = false;
         winBox.classList.add('show-popup');
         setTimeout(function(){
             winBox.firstElementChild.classList.remove('dnone');
