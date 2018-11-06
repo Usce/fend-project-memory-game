@@ -22,6 +22,7 @@ let starsStats = document.querySelector('.stars-stats');
 let winBox = document.querySelector('.win-popup');
 let playAgain = document.querySelector('.play-again');
 let time = document.getElementById('time');
+let countEl = document.getElementById('countEL');
 let star = '<li><i class="fa fa-star"></i></li>';
 let openCardsList = [];
 let numberTracker = 0;
@@ -52,6 +53,7 @@ function timer(isRunning) {
     if(isRunning){
         setInterval(function() {
             seconds++
+            countEl.innerHTML=seconds;
         }, 1000);
     }
 }
