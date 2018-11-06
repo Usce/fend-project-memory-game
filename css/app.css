@@ -235,18 +235,18 @@ while waiting for part of the cart to flip */
     display: none;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 980px) {
     .deck {
-        width: 95%;
+        width: 80%;
         height: 100%;
         margin: 0 auto;
         min-height: initial;
     }
 
     .deck .card {
-        width: 60px;
         height: 60px;
         margin: 2px 0;
+        flex: 0 0 21%;
     }
 
     .win-popup {
@@ -278,6 +278,18 @@ while waiting for part of the cart to flip */
     }
 }
 
+
+@media screen and (max-width: 380px) {
+    .deck .card {
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 325px){
+    .deck .card {
+        height: 42px;
+    }
+}
 /* CSS for checkmark from sweetalert.js sourced by https://codepen.io/istiaktridip/pen/BZqaOd */
 
 .check_mark {
