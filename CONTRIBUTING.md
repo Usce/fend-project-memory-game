@@ -1,3 +1,7 @@
 # How to contribute
 
-The files in this repository are used as the starting point for all students. Because we want students to write the majority of the code themselves, pull requests (most likely) will _not_ be merged into the project.
+This is example contribution file.
+
+This repository contains project for submission to Udacity, as a part
+of Front-End Nanodegree. As sole purpose of the project is as mentioned, at the moment
+further contributions are needless.
