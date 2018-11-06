@@ -26,6 +26,7 @@ let star = '<li><i class="fa fa-star"></i></li>';
 let openCardsList = [];
 let numberTracker = 0;
 let seconds = 0;
+let isRunning = true;
 
 /*
  * Display the cards on the page
@@ -47,13 +48,15 @@ function cardShuffler(deck){
 cardShuffler(deck);
 
 // Timer function used to increment seconds and display results if game is finished
-function timer() {
-    setInterval(function() {
-        seconds++
-    }, 1000);
+function timer(isRunning) {
+    if(isRunning){
+        setInterval(function() {
+            seconds++
+        }, 1000);
+    }
 }
 
-timer();
+timer(isRunning);
 
 // Show cards by adding necessary CSS classes
 function showCard(elem) {
