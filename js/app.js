@@ -34,15 +34,6 @@ let seconds = 0;
  *   - add each card's HTML to the page
  */
 
-//  function cardShuffler(cardClasses){
-//    // let shuffleCards = shuffle(cards);
-//    let contain = "";
-//    for(let card of shuffle(cardClasses)){
-//      contain = `<li class="card"><i class="fa ${card}"></i></li>`;
-//      deck.appendChild(contain);
-//    }
-// }
-
 //Shufflign cards function, where argument is element in which card will be append
 function cardShuffler(deck){
     let container = "";
