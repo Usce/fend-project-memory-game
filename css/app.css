@@ -238,17 +238,43 @@ while waiting for part of the cart to flip */
 @media screen and (max-width: 480px) {
     .deck {
         width: 95%;
-        min-height: 1000px;
+        height: 100%;
         margin: 0 auto;
+        min-height: initial;
     }
 
     .deck .card {
-        width: 200px;
-        height: 200px;
+        width: 60px;
+        height: 60px;
+        margin: 2px 0;
     }
 
     .win-popup {
         height: 100%;
+    }
+
+    .deck .card.match, .deck .card.show {
+        font-size: 24px;
+    }
+
+    .win-popup h2{
+        font-size: 20px;
+        margin: 0;
+    }
+
+    .time-stats {
+        margin-top: 0px;
+    }
+
+    .stats {
+        margin-bottom: 0px;
+    }
+
+    .play-again {
+        font-size: 16px;
+        line-height: 4px;
+        padding: 20px;
+        width: 50%;
     }
 }
 
