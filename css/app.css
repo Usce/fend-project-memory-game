@@ -235,6 +235,23 @@ while waiting for part of the cart to flip */
     display: none;
 }
 
+@media screen and (max-width: 480px) {
+    .deck {
+        width: 95%;
+        min-height: 1000px;
+        margin: 0 auto;
+    }
+
+    .deck .card {
+        width: 200px;
+        height: 200px;
+    }
+
+    .win-popup {
+        height: 100%;
+    }
+}
+
 /* CSS for checkmark from sweetalert.js sourced by https://codepen.io/istiaktridip/pen/BZqaOd */
 
 .check_mark {
